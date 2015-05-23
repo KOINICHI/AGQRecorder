@@ -1,0 +1,168 @@
+﻿<Window x:Class="AGQRecorder0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AGQRecorder" Height="250" Width="600" MinHeight="200" MinWidth="550"
+        Closing="Window_Closing" Background="Transparent" WindowStyle="None" AllowsTransparency="True"
+        Icon="./favicon.ico">
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="FontFamily" Value="Malgun Gothic" />
+        </Style>
+    </Window.Resources>
+    <Grid Name="LayoutRootGrid" Margin="10" Background="White" >
+        <Grid.Effect>
+            <DropShadowEffect Color="Black" Direction="270" BlurRadius="15" ShadowDepth="3" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="0" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Name="BorderGrid" Background="#FF9BBB5A">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="45" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Width="30" Name="AddButtonImage" Margin="0,5,0,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="./AddBtn.png" Stretch="Uniform" />
+                </Button>
+                <Button Grid.Column="0" Width="30" Name="ListButtonImage" Margin="0,5,0,0" Background="Transparent" BorderThickness="0" Visibility="Hidden">
+                    <Image Source="./ListBtn.png" Stretch="Uniform" />
+                </Button>
+                <Button Grid.Column="1" Width="30" Name="SettingButtonImage" Margin="0,5,0,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="./SettingBtn.png" Stretch="Uniform" />
+                </Button>
+                <Button Grid.Column="3" Width="25" Name="MinimizeButtonImage" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="./MinimizeBtn.png" Stretch="Uniform" />
+                </Button>
+                <Button Grid.Column="4" Width="25" Name="ExitButtonImage" Margin="0,0,0,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="./ExitBtn.png" Stretch="Uniform" />
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Name="NextRecordLabel" Content="Next record in " Margin="5,0,0,0" />
+                <Label Grid.Column="1" Name="CurrentTimeLabel" Content="2015.04.08 00:00:00" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Name="EditLayout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Row="0" Name="TitleTextBox" BorderThickness="0" FontSize="18" Padding="10,0,10,0" TextAlignment="Center" Background="AliceBlue" />
+            <Border Grid.Row="1" Height="2" Width="600" Background="#FF9BBB5A" />
+            <Grid Grid.Row="2">
+                <Grid.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="FontSize" Value="50" />
+                        <Setter Property="MaxLength" Value="2" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="TextBlock.LineHeight" Value="60" />
+                        <Setter Property="TextBlock.LineStackingStrategy" Value="BlockLineHeight" />
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="50" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="0,-15,0,0" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Name="StartHour" />
+                <Label Grid.Column="1" Content=":" />
+                <TextBox Grid.Column="2" Name="StartMinute" />
+                <TextBox Grid.Column="4" Name="EndHour" />
+                <Label Grid.Column="5" Content=":" />
+                <TextBox Grid.Column="6" Name="EndMinute" />
+            </Grid>
+            <Grid Grid.Row="3" Background="AliceBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                    </Style>
+                </Grid.Resources>
+                <Label Grid.Column="0" Name="Sun" Content="SUN" />
+                <Label Grid.Column="1" Name="Mon" Content="MON" />
+                <Label Grid.Column="2" Name="Tue" Content="TUE" />
+                <Label Grid.Column="3" Name="Wed" Content="WED" />
+                <Label Grid.Column="4" Name="Thu" Content="THU" />
+                <Label Grid.Column="5" Name="Fri" Content="FRI" />
+                <Label Grid.Column="6" Name="Sat" Content="SAT" />
+                <Label Grid.Column="7" Name="Kak" Content="BI" />
+            </Grid>
+            <Grid Grid.Row="4" Name="AddButtonGrid">
+                <Button Name="ButtonAdd" Content="ADD" BorderThickness="0" />
+            </Grid>
+            <Grid Grid.Row="4" Name="EditDeleteButtonGrid" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Name="ButtonEdit" Content="EDIT" BorderThickness="0" />
+                <Button Grid.Column="1" Name="ButtonDelete" Content="DELETE" BorderThickness="0" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Name="ListLayout">
+            <ScrollViewer  VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+                <StackPanel Name="ListStackPanel">
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="3" Name="SettingLayout">
+            <StackPanel Name="SettingStackPanel">
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
